@@ -15,10 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import modeloDAO.ProductoDAO;
 import modeloVO.ProductoVO;
 
-
 /**
  *
- * @author adria
+ * @author user
  */
 @WebServlet(name = "ProductoControlador", urlPatterns = {"/Producto"})
 public class ProductoControlador extends HttpServlet {
@@ -37,7 +36,48 @@ public class ProductoControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-       
+        int opcion = Integer.parseInt(request.getParameter("opcion"));
+        String pro_id = request.getParameter("textId");
+        String pro_nombre = request.getParameter("textNombre");
+        String pro_precio = request.getParameter("textPrecio");
+        String pro_descripcion = request.getParameter("textDescripcion");
+        String pro_f_tie_id = request.getParameter("textTie_id");
+        String pro_f_tipo_pro_id = request.getParameter("textTipo_pro");
+
+        
+      
+      // segundo: mandar datos al VO
+  
+        ProductoVO proVO = new ProductoVO(pro_id, pro_nombre, pro_precio, pro_descripcion, pro_f_tie_id, pro_f_tipo_pro_id);
+        ProductoDAO proDAO =new ProductoDAO(proVO);
+     
+     
+        switch(opcion) {
+         
+        case 1:  //agregar registro
+          
+             if  (proDAO.agregarRegistro()) { 
+                 request.setAttribute("mensajeExito", "El Producto se registro correctamente");
+            } else{
+                 request.setAttribute("mensajeError", "El Producto NO se registro correctamente");
+                 
+             }
+              request.getRequestDispatcher("registrarProducto.jsp").forward(request, response);
+              break;
+              
+        case 2:  //actualizar registro
+                    
+             if  (proDAO.actualizarRegistro()) { 
+                 request.setAttribute("mensajeExito", "El Producto se actualizo correctamente");
+            } else{
+                 request.setAttribute("mensajeError", "El Producto  NO se actualizo correctamente");
+                 
+             }
+             break;
+             
+
+                
+     }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,54 +107,6 @@ public class ProductoControlador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-         //primero: recoger datos 
-        
-        System.out.println("**** DATOS CLIENTE ****");
-        //int opcion = Integer.parseInt(request.getParameter("opcion"));
-        String opcionrecibida = request.getParameter("opcion");
-        System.out.println("Recibido: "+opcionrecibida);
-        int opcion = Integer.parseInt (opcionrecibida);
-        String pro_id = (String) request.getAttribute("textId");
-        String pro_nombre = request.getParameter("textNombre");
-        System.out.println("Nombre: "+pro_nombre);
-
-        String pro_precio = request.getParameter("textPrecio");
-        String pro_descripcion = request.getParameter("textDescripcion");
-        String pro_f_tie_id = request.getParameter("textIdtienda");
-        String pro_f_tipo_pro_id = request.getParameter("textIdtipopro");
-
-      
-      // segundo: mandar datos al VO
-  
-        ProductoVO proVO = new ProductoVO(pro_id, pro_nombre, pro_precio, pro_descripcion, pro_f_tie_id, pro_f_tipo_pro_id);
-        ProductoDAO proDAO= new ProductoDAO(proVO);
-     
-     
-        switch(opcion) {
-         
-        case 1:  //agregar registro
-          
-             if  (proDAO.agregarRegistro()) { 
-                 request.setAttribute("mensajeExito", "El producto se registro correctamente");
-            } else{
-                 request.setAttribute("mensajeError", "El producto NO se registro correctamente");
-                 
-             }
-              request.getRequestDispatcher("admi/pages/product/registrarProducto.jsp").forward(request, response);
-              break;
-              
-        case 2:  //agregar registro
-                    
-             if  (proDAO.actualizarRegistro()) { 
-                 request.setAttribute("mensajeExito", "El producto se actualizo correctamente");
-            } else{
-                 request.setAttribute("mensajeError", "El producto  NO se actualizo correctamente");
-                 
-             }
-        break;
-                
-     }
     }
 
     /**
@@ -127,5 +119,4 @@ public class ProductoControlador extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-
-    }
+}
