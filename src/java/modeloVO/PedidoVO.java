@@ -7,67 +7,76 @@ package modeloVO;
 
 /**
  *
- * @author Juliana
+ * @author adria
  */
-public class PedidoVO {
-    private String ped_id,ped_fecha,ped_direccion,ped_cant_total, ped_valor, ped_hora;
-
-    public PedidoVO(String ped_id, String ped_fecha, String ped_direccion, String ped_cant_total, String ped_valor, String ped_hora) {
-        this.ped_id = ped_id;
-        this.ped_fecha = ped_fecha;
-        this.ped_direccion = ped_direccion;
-        this.ped_cant_total = ped_cant_total;
-        this.ped_valor = ped_valor;
-        this.ped_hora = ped_hora;
+public class ProductoVO {
+    
+    private String pro_id, pro_nombre, pro_precio, pro_descripcion, pro_f_tie_id, pro_f_tipo_pro_id;
+  
+    
+    public ProductoVO() {
+    
+    }
+    
+    public ProductoVO(String pro_id, String pro_nombre, String pro_precio, String pro_descripcion, String pro_f_tie_id, String pro_f_tipo_pro_id) {
+        this.pro_id = pro_id;
+        this.pro_nombre = pro_nombre;
+        this.pro_precio = pro_precio;
+        this.pro_descripcion = pro_descripcion;
+        this.pro_f_tie_id = pro_f_tie_id;
+        this.pro_f_tipo_pro_id = pro_f_tipo_pro_id;
+    }
+    
+    public String getPro_id() {
+        return pro_id;
     }
 
-    public String getPed_id() {
-        return ped_id;
+    public void setPro_id(String pro_id) {
+        this.pro_id = pro_id;
     }
 
-    public void setPed_id(String ped_id) {
-        this.ped_id = ped_id;
+    public String getPro_nombre() {
+        return pro_nombre;
     }
 
-    public String getPed_fecha() {
-        return ped_fecha;
+    public void setPro_nombre(String pro_nombre) {
+        this.pro_nombre = pro_nombre;
     }
 
-    public void setPed_fecha(String ped_fecha) {
-        this.ped_fecha = ped_fecha;
+    public String getPro_precio() {
+        return pro_precio;
     }
 
-    public String getPed_direccion() {
-        return ped_direccion;
+    public void setPro_precio(String pro_precio) {
+        this.pro_precio = pro_precio;
     }
 
-    public void setPed_direccion(String ped_direccion) {
-        this.ped_direccion = ped_direccion;
+    public String getPro_descripcion() {
+        return pro_descripcion;
     }
 
-    public String getPed_cant_total() {
-        return ped_cant_total;
+    public void setPro_descripcion(String pro_descripcion) {
+        this.pro_descripcion = pro_descripcion;
     }
 
-    public void setPed_cant_total(String ped_cant_total) {
-        this.ped_cant_total = ped_cant_total;
+    public String getPro_f_tie_id() {
+        return pro_f_tie_id;
     }
 
-    public String getPed_valor() {
-        return ped_valor;
+    public void setPro_f_tie_id(String pro_f_tie_id) {
+        this.pro_f_tie_id = pro_f_tie_id;
     }
 
-    public void setPed_valor(String ped_valor) {
-        this.ped_valor = ped_valor;
+    public String getPro_f_tipo_pro_id() {
+        return pro_f_tipo_pro_id;
     }
 
-    public String getPed_hora() {
-        return ped_hora;
+    public void setPro_f_tipo_pro_id(String pro_f_tipo_pro_id) {
+        this.pro_f_tipo_pro_id = pro_f_tipo_pro_id;
     }
 
-    public void setPed_hora(String ped_hora) {
-        this.ped_hora = ped_hora;
-    }
 
-       
+        
 }
+
+
