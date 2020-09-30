@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-jul-2020, 13:06:51
+    Author     : user
+*/
+
+
+#imagen{
+    background-image: url("../images/hamburguesa1.jpg");
+}
+
+#exito{
+    background-color:rgba(77, 212, 81, 0.5) ;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 3px;
+    
+}
