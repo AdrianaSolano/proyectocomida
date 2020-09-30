@@ -49,7 +49,7 @@ public class ProductoDAO extends Conexion  implements Crud{
             
         } catch (Exception e) {
             
-        Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null,  e);
+        Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null,  e);
             
         }
     }
@@ -103,7 +103,7 @@ public class ProductoDAO extends Conexion  implements Crud{
             puente.executeUpdate();
             operaciones = true;
     } catch ( SQLException e) {
-               Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e );
+               Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, e );
 
     }finally{
             try{
